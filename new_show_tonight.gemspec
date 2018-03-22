@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Rocky Chiang"]
   spec.email         = ["rocky@chem.ucla.edu"]
 
-  spec.summary       = %q{poNewShowTonight is a CLI app that show a list of new TV episodes that will be aired on that day.}
+  spec.summary       = %q{NewShowTonight is a CLI app that show a list of new TV episodes that will be aired on that day.}
   spec.homepage      = "https://github.com/rockychiang/new_show_tonight"
   spec.license       = "MIT"
 
