@@ -2,4 +2,4 @@
 
 require_relative "../lib/new_show_tonight.rb"
 
-CommandLineInterface.run
+CommandLineInterface.new.run

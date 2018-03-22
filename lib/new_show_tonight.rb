@@ -1,4 +1,6 @@
-require "new_show_tonight/version"
-require "../lib/."
+# require "new_show_tonight/version"
+require_relative "../lib/cli.rb"
+require_relative "../lib/scrapper.rb"
+require_relative "../lib/show.rb"
 require "nokogiri"
 require "open-uri"
