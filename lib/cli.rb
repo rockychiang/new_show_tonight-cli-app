@@ -17,8 +17,8 @@ class CommandLineInterface
   def more_info
     puts "If you would like get more information about a specific show enter their index number, \ntype 'list' to show the list of today's episode, or 'exit'"
     input = gets.strip
-    if input.to_i > 0
-      show_info
+    if input.to_i.between?(0,Show.all.count)
+      show_info(Show.all[input.to_i-1])
     elsif input == "list"
       list_show
       more_info
@@ -29,14 +29,14 @@ class CommandLineInterface
     end
   end
 
-  def show_info
-    puts "\nShow Name"
-    puts "\nSummary: "
-    puts "\nGenre: "
-    puts "Channel: "
-    puts "Showtime: "
-    puts "Current Season: "
-    puts "Current Episode: "
+  def show_info(show)
+    puts "\n#{show.name}"
+    puts "\nSummary: #{show.summary}"
+    puts "\nGenre: #{show.genre.join(", ")}"
+    puts "Channel: #{show.channel}"
+    puts "Showtime: #{show.showtime}"
+    puts "Current Season: #{show.season}"
+    puts "New Episode: #{show.episode}. #{show.episode_name}"
 
     puts "\nType 'list' to show the list of today's episode, or 'exit'"
     input = gets.strip
@@ -46,7 +46,7 @@ class CommandLineInterface
     elsif input == "exit"
     else
       invalid
-      show_info
+      show_info(show)
     end
   end
 
