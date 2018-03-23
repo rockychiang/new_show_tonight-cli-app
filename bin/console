@@ -11,4 +11,4 @@ require "new_show_tonight"
 # Pry.start
 
 require "irb"
-IRB.start(__FILE__)
+IRB.start("new-show-tonight")

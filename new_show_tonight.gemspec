@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["rocky@chem.ucla.edu"]
 
   spec.summary       = %q{NewShowTonight is a CLI app that show a list of new TV episodes that will be aired on that day.}
-  spec.homepage      = "https://github.com/rockychiang/new_show_tonight"
+  spec.homepage      = "https://github.com/rockychiang/new_show_tonight-cli-app"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -25,8 +25,8 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = "bin"
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.16"
