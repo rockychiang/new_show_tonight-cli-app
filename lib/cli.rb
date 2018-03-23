@@ -3,7 +3,7 @@ class CommandLineInterface
     puts "\nLoading today's new TV episodes. \n(This might take a couple of minutes)"
     Scrapper.list_scrapper
     list_show
-    more_info
+    list_menu
   end
 
   def list_show
@@ -14,18 +14,20 @@ class CommandLineInterface
     puts ""
   end
 
-  def more_info
+  def list_menu
     puts "If you would like get more information about a specific show enter their index number, \ntype 'list' to show the list of today's episode, or 'exit'"
-    input = gets.strip
-    if input.to_i.between?(0,Show.all.count)
+    input = gets.strip.downcase
+    
+    if input.to_i.between?(1, Show.all.count)
       show_info(Show.all[input.to_i-1])
+      show_menu
     elsif input == "list"
       list_show
-      more_info
+      list_menu
     elsif input == "exit"
     else
       invalid
-      more_info
+      list_menu
     end
   end
 
@@ -37,16 +39,20 @@ class CommandLineInterface
     puts "Showtime: #{show.showtime}"
     puts "Current Season: #{show.season}"
     puts "New Episode: #{show.episode}. #{show.episode_name}"
+    puts ""
+  end
 
-    puts "\nType 'list' to show the list of today's episode, or 'exit'"
-    input = gets.strip
+  def show_menu
+    puts "Type 'list' to show the list of today's episode, or 'exit'"
+    input = gets.strip.downcase
+
     if input == "list"
       list_show
-      more_info
+      list_menu
     elsif input == "exit"
     else
       invalid
-      show_info(show)
+      show_menu
     end
   end
 

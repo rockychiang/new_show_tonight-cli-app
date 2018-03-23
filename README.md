@@ -1,6 +1,6 @@
 # NewShowTonight
 
-NewShowTonight is a CLI app that show a list of new TV episodes that will be aired on that day. 
+NewShowTonight is a CLI app that shows a list of all new TV episodes that will be airing on that day.
 
 ## Installation
 
@@ -20,7 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Once installed, type "new_show_tonight" in the command line to open the app. After a few minutes a list of new TV episodes that is airing on that day will show. At this point the user have a few options
+  - Enter the index number of a particular show to get more information about the show.
+  - Enter 'list' to show the list of TV show again.
+  - Enter 'exit' to exit the app.
 
 ## Development
 

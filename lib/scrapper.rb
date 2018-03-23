@@ -20,14 +20,17 @@ class Scrapper
     url.xpath("//*[@itemprop='genre']").each{|genre| show.genre << genre.text}
     show.channel = url.css("#middle_section .sub_main")[1].text.split(" at ")[0]
     show.showtime = url.css("#middle_section .sub_main")[1].text.split(" at ")[1]
+
     url.xpath("//*[@class='subheadline']").remove
+
     show.status = url.css("#middle_section").text.gsub("\t","").split("\n").reject(&:empty?)[4]
     show.date = url.xpath("//*[@id='next_episode']").text.gsub("\t","").split("\n").reject(&:empty?)[3]
+
     if show.status == "Running" && show.date == Time.now.strftime("%a %b %d, %Y")
-      show.save
+      show.season = url.xpath("//*[@id='next_episode']").text.gsub("\t","").split("\n").reject(&:empty?)[4]
       show.episode_name = url.css("#next_episode .sub_main")[0].text
       show.episode = url.css("#next_episode .sub_main")[1].text
-      show.season = url.xpath("//*[@id='next_episode']").text.gsub("\t","").split("\n").reject(&:empty?)[4]
+      show.save
     end
   end
 end
