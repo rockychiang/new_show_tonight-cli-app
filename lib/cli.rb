@@ -7,7 +7,7 @@ class CommandLineInterface
 
   def list_show
     puts "\nToday's new TV episodes are as follow:"
-    Show.all.uniq.each_with_index do |show, index|
+    Show.all.each_with_index do |show, index|
       puts "#{index+1}. #{show.name}"
     end
     puts ""

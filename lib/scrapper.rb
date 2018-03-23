@@ -3,7 +3,7 @@ class Scrapper
 
   def self.list_scrapper
     url = Nokogiri::HTML(open(URL + "/recent/"))
-    url.css("td span div h3").each do |episode|
+    url.css("#recents_wrapper td").first.css("h3").each do |episode|
       if Show.find_by_name(episode.text) == nil
         show = Show.find_or_create_by_name(episode.text)
         show.url = episode.children.attribute("href").value
