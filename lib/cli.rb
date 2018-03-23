@@ -5,6 +5,7 @@ class CommandLineInterface
   end
 
   def list_show
+    Scrapper.list_scrapper
     puts "\nToday's new TV episodes are as follow:"
     puts "1. Show 1"
     puts "2. Show 2"
