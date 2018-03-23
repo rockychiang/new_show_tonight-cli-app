@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Once installed, type "new_show_tonight" in the command line to open the app. After a few minutes a list of new TV episodes that is airing on that day will show. At this point the user have a few options
+Once installed, type "new-show-tonight" in the command line to open the app. After a few minutes a list of new TV episodes that is airing on that day will show. At this point the user have a few options
   - Enter the index number of a particular show to get more information about the show.
   - Enter 'list' to show the list of TV show again.
   - Enter 'exit' to exit the app.
