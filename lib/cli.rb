@@ -7,9 +7,9 @@ class CommandLineInterface
   def list_show
     Scrapper.list_scrapper
     puts "\nToday's new TV episodes are as follow:"
-    puts "1. Show 1"
-    puts "2. Show 2"
-    puts "3. Show 3"
+    Show.all.uniq.each_with_index do |show, index|
+      puts "#{index+1}. #{show.name}"
+    end
     puts ""
   end
 
