@@ -1,12 +1,13 @@
 class CommandLineInterface
   def run
+    puts "\nLoading today's new TV episodes. \n(This might take a couple of minutes)"
     Scrapper.list_scrapper
     list_show
     more_info
   end
 
   def list_show
-    puts "\nToday's new TV episodes are as follow:"
+    puts "\nToday's new episodes are:"
     Show.all.each_with_index do |show, index|
       puts "#{index+1}. #{show.name}"
     end

@@ -4,8 +4,8 @@ class Scrapper
   def self.list_scrapper
     url = Nokogiri::HTML(open(URL + "/recent/"))
     url.css("#recents_wrapper td").first.css("h3").each do |episode|
-      if Show.find_by_name(episode.text) == nil
-        show = Show.find_or_create_by_name(episode.text)
+      show = Show.find_or_create_by_name(episode.text)
+      if show.url == nil
         show.url = episode.children.attribute("href").value
         self.show_scrapper(show)
       end
@@ -14,9 +14,10 @@ class Scrapper
 
   def self.show_scrapper(show)
     url = Nokogiri::HTML(open(URL + show.url))
-    show.status = url.xpath("//*[@class='sub_main']", "//*[@class='subheadline']", "//*[@class='headline']")
-    .remove.xpath("//*[@id='middle_section']").text.gsub("\t","").split("\n").reject(&:empty?)[1]
-    if show.status == "Running"
+    show.status = url.xpath("//*[@class='sub_main']", "//*[@class='subheadline']", "//*[@class='headline']").remove
+    .xpath("//*[@id='middle_section']").text.gsub("\t","").split("\n").reject(&:empty?)[1]
+    show.date = url.xpath("//*[@id='next_episode']").text.gsub("\t","").split("\n").reject(&:empty?)[1]
+    if show.status == "Running" && show.date == Time.now.strftime("%a %b %d, %Y")
       show.save
     end
   end
