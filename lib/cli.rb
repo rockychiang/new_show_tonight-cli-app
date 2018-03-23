@@ -8,7 +8,7 @@ class CommandLineInterface
 
   def list_show
     puts "\nToday's new episodes are:"
-    Show.all.each_with_index do |show, index|
+    Show.all.uniq.each_with_index do |show, index|
       puts "#{index+1}. #{show.name}"
     end
     puts ""
@@ -38,7 +38,7 @@ class CommandLineInterface
     puts "Current Season: "
     puts "Current Episode: "
 
-    puts "\n type 'list' to show the list of today's episode, or 'exit'"
+    puts "\nType 'list' to show the list of today's episode, or 'exit'"
     input = gets.strip
     if input == "list"
       list_show

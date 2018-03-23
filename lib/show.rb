@@ -1,5 +1,5 @@
 class Show
-  attr_accessor :name, :url, :summary, :genre, :channel, :showtime, :season, :episode, :status, :date
+  attr_accessor :name, :url, :summary, :genre, :channel, :showtime, :season, :episode, :episode_name, :status, :date
   @@all = []
 
   def initialize(name)
