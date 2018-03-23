@@ -1,11 +1,11 @@
 class CommandLineInterface
   def run
+    Scrapper.list_scrapper
     list_show
     more_info
   end
 
   def list_show
-    Scrapper.list_scrapper
     puts "\nToday's new TV episodes are as follow:"
     Show.all.uniq.each_with_index do |show, index|
       puts "#{index+1}. #{show.name}"
