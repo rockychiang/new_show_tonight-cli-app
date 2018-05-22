@@ -25,6 +25,10 @@ Once installed, type "new-show-tonight" in the command line to open the app. Aft
   - Enter 'list' to show the list of TV show again.
   - Enter 'exit' to exit the app.
 
+## Demo
+
+https://youtu.be/4QAETBmgMf8
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
